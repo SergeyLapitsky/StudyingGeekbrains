@@ -14,3 +14,25 @@ while (i < n)
     i = i + 1;
 }
 Console.WriteLine(max);
+
+// С помощью цикла FOR
+max = arr[0];
+for(int j = 0; j < n; j++)
+{
+    if (arr[j] > max)
+    {
+        max = arr[j];
+    }
+}
+Console.WriteLine(max);
+
+// С помощью цикла FOREACH
+max = arr[0];
+foreach(int e in arr)
+{
+    if (e > max)
+    {
+        max = e;
+    }
+}
+Console.WriteLine(max);
