@@ -1,9 +1,6 @@
 ﻿// Задайте одномерный массив, заполненный случайными
-// числами. Определите количество простых чисел в этом
-// массиве.
-// Примеры
-// [1 3 4 19 3] => 3
-// [4 3 4 1 9 5 21 13] => 3
+// числами. Найдите количество чисел которые оканчиваются
+// на 1 и делятся нацело на 7.
 
 // Генерация массива со случайными числами
 int[] CreateArray(int size, int min, int max)
@@ -16,20 +13,6 @@ int[] CreateArray(int size, int min, int max)
     return array;
 }
 
-// Заполнение массива с консоли
-/* int[] InputArray()
-{
-    System.Console.WriteLine("Input array size: ");
-    int size = Convert.ToInt32(Console.ReadLine());
-    int[] array = new int[size];
-    for (int i = 0; i < size; i++)
-    {
-        System.Console.Write("Input" + i + 1 + "element: ");
-        array[i] = Convert.ToInt32(Console.ReadLine());
-    }
-    return array;
-} */
-
 void PrintArray(int[] array)
 {
     for (int i = 0; i < array.Length; i++)
@@ -39,28 +22,12 @@ void PrintArray(int[] array)
     System.Console.WriteLine();
 }
 
-bool IsPrime(int num)
-{
-    if (num == 1)
-    {
-        return false;
-    }
-    for (int j = 2; j <= num / 2; j++)
-    {
-        if (num % j == 0)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-
-int CountPrime(int[] array)
+int NumCounter(int[] array)
 {
     int count = 0;
     for (int i = 0; i < array.Length; i++)
     {
-        if (IsPrime(array[i]))
+        if (array[i] % 10 == 1 && array[i] % 7 == 0)
         {
             count++;
         }
@@ -76,7 +43,6 @@ int min = Convert.ToInt32(Console.ReadLine());
 System.Console.WriteLine("Input maximal value of arr element: ");
 int max = Convert.ToInt32(Console.ReadLine());
 
-// int[] array = InputArray();
 int[] array = CreateArray(size, min, max);
 PrintArray(array);
-System.Console.WriteLine(CountPrime(array));
+System.Console.WriteLine(NumCounter(array));
